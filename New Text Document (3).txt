@@ -1,0 +1,30 @@
+اسم المشروع: نظام التحكم في الوصول الذكي والمؤمن (Secure IoT Access Control System)
+ملخص المشروع:
+هذا المشروع هو نظام أمني متقدم يعتمد على تقنية إنترنت الأشياء (IoT) للتحكم في الأبواب والمداخل. يتميز النظام باستخدام طبقات حماية متعددة (Defense in Depth) لضمان عدم تزوير كروت الدخول، مع توثيق كامل لكل العمليات لحظياً على سحابة جوجل (Firebase).
+
+المميزات التقنية:
+التشفير المتقدم: لا يعتمد النظام على الرقم التسلسلي (UID) للكارت فقط، بل يستخدم مفتاحاً سرياً (Private Hex Key) للوصول إلى قطاعات مشفرة داخل ذاكرة الكارت (Mifare Classic 1K) باستخدام خوارزمية CRYPTO1.
+
+المعالجة في الوقت الفعلي (FreeRTOS): تم برمجة معالج ESP32 ليعمل بنظام المهام المتعددة، حيث تم تخصيص نواة لمعالجة الأمن والتشفير، ونواة أخرى للاتصال السحابي، مما يضمن استجابة فورية عند وضع الكارت.
+
+الربط السحابي والرقابة: يتم رفع تقرير مفصل عن كل محاولة دخول (سواء نجحت أو فشلت) إلى قاعدة بيانات Firebase، مما يتيح للمسؤولين مراقبة البوابة من أي مكان في العالم.
+
+التفاعل الحيوي: يوفر النظام ردود فعل صوتية عبر (Buzzer) وفيزيائية عبر (Relay) لفتح القفل الكهربائي.
+
+
+
+----------------------------------------------------------------------
+
+
+Project Title: Secure Real-Time IoT Access Control System
+Abstract:
+This project presents an advanced security solution for smart access management, leveraging Internet of Things (IoT) technologies and robust cryptographic protocols. The system is designed to provide secure, authenticated entry using RFID technology, integrated with real-time cloud monitoring.
+
+Technical Highlights:
+High-Level Security: Unlike standard RFID systems that rely on the public UID, this system utilizes a Private Hexadecimal Key to authenticate and access encrypted sectors within the Mifare Classic 1K card memory, employing the CRYPTO1 hardware encryption algorithm.
+
+Real-Time Architecture (FreeRTOS): Powered by the ESP32 dual-core processor, the system utilizes FreeRTOS to handle multitasking. One core is dedicated to high-priority security and encryption tasks, while the second core manages cloud connectivity and background logging.
+
+Cloud Integration: All access attempts—authorized or unauthorized—are pushed instantly to a Firebase Realtime Database. This provides a live audit trail and remote monitoring capabilities through a synchronized cloud dashboard.
+
+Hardware Feedback: The system integrates a Relay Module for electronic lock control and a Buzzer for audible status notifications (Short beep for success, long beep for intrusion detection).
